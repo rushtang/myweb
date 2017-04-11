@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+
+{% block script %}
+{{ super() }}
+
+{{ pagedown.include_pagedown ()}}
+
+{% endblock %}
+
+
+{% block page_content %}
+
+{% if current_user.can(Permission.WRITE_ARTICLES) %}
+<p>
+        <h2>what's on your mind?</h2>
+        {{ wtf.quick_form(form) }}
+        </p>
+{% endif %}
+
+
+
+
+{% endblock %}

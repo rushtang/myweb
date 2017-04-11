@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+
+{% block page_content %}
+
+<div class="page-header">
+<h1>{{ onepost.title }}</h1>
+{% if onepost.digest %}
+<p>{{onepost.digest }}</p>
+{% endif %}
+
+</div>
+
+
+  {% if onepost.body_html %}
+                {{ onepost.body_html|safe}}
+            {% else %}
+                {{ onepost.body }}
+            {% endif %}
+
+
+{% endblock %}

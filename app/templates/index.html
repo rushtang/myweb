@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block page_content %}
+
+    <div class="page-header">
+<h1>Hello,
+{% if current_user.is_authenticated %}
+    {{ current_user.username }}
+{% else %}
+    Stranger
+    </h1>
+{% endif %}
+</div>
+
+{% if current_user.is_authenticated %}
+
+    <div class="tabbable" id="tabs-841050">
+        <ul class="nav nav-tabs">
+    {% if  show_byfollowed %}
+                    <li >
+						 <a href="{{ url_for(".show_all")}}" >全部</a>
+					</li>
+					<li class="active">
+						 <a href="{{ url_for(".show_byfollowed")}}" >关注的</a>
+					</li>
+        {% else %}
+                    <li class="active" >
+						 <a href="{{ url_for(".show_all")}}" >全部</a>
+					</li>
+					<li >
+						 <a href="{{ url_for(".show_byfollowed")}}" >关注的</a>
+					</li>
+        {% endif %}
+        </ul>
+    </div>
+{% endif %}
+
+
+
+{% include '_postlist.html' %}
+
+{% if pagination %}
+    <div class="pagination">
+    {{ macros.pagination_widget(pagination,".index") }}
+    </div>
+{% endif %}
+
+{% endblock %}
+
+</html>

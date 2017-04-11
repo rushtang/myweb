@@ -1,0 +1,20 @@
+{% macro pagination_widget(pagination,endpoint) %}
+<ul class="pagination">
+    <li >
+        <a href="{{ url_for(endpoint,page=pagination.page - 1,**kwargs)}}">
+            &laquo;
+        </a>
+    </li>
+    {% for p in pagination.iter_pages() %}
+    <li>
+        <a href="{{ url_for(endpoint,page=p, **kwargs) }}">{{ p }}</a>
+    </li>
+    {% endfor %}
+    <li>
+        <a href="{{ url_for(endpoint,page=pagination.page + 1, **kwargs)}}">
+            &raquo;
+            </a>
+    </li>
+
+</ul>
+{% endmacro %}
