@@ -53,14 +53,16 @@
         关注者:<span class="badge">{{user.byfollowed_list.count()}}</span>
     </a>
 </p>
-
-</div>
+<p>
     {% if user==current_user %}
 
         <a class="btn btn-default"  href="{{ url_for('.editprofile') }}">
-        edit profile
+        编辑资料
         </a>
     {% endif %}
+</p>
+
+</div>
 
     {% include '_postlist.html' %}
 

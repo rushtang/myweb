@@ -16,8 +16,31 @@
 {% if current_user.can(Permission.WRITE_ARTICLES) %}
 <p>
         <h2>what's on your mind?</h2>
-        {{ wtf.quick_form(form) }}
-        </p>
+</p>
+    <form class="form form-horizontal" method="post" role="form" style="width: 500px;">
+    {{ form.hidden_tag() }}
+    {{ wtf.form_errors(form, hiddens="only") }}
+    <div class="form-group  required">
+    {{ wtf.form_field(form.title) }}
+    </div>
+    <div class="form-group  required">
+    {{ wtf.form_field(form.digest) }}
+    </div>
+    <style type="text/css">
+        #contentcode {
+            height: 400px;
+        }
+    </style>
+    <div class="form-group  required">
+    {{ wtf.form_field(form.body) }}
+    </div>
+    <div >
+    {{ wtf.form_field(form.submit) }}
+    </div>
+
+</form>
+
+
 {% endif %}
 
 

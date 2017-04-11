@@ -6,6 +6,8 @@
 {% block title %}Valkyrie{% endblock %}
 {% block head %}
     {{ super() }}
+
+  <link rel="shortcut icon" type="image/x-icon" href="/static/img/default/233.jpg"/>
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"> </script>
@@ -60,10 +62,12 @@
 
 
 <div class="col-md-2 column" style="width:10%">
-			<p>
-				<em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
-			</p>
-    </div>
+    <div style="margin-top: 200px;">
+    <p>
+
+    </p>
+       </div>
+</div>
 
 <div class="col-md-6 column" style="width:70%">
 
@@ -75,22 +79,24 @@
 
 
 <div class="col-md-4 column" style="width:15%">
-    <img alt="140x140" src="v3/default3.jpg" class="img-circle" />
+    <img  src="/static/img/default/233.jpg" class="img-circle" style="
+    width: 200px;"/>
 			<h2>
-				Heading
+				Hello
 			</h2>
+			<p>Free Software developer</p>
+            <p>I code in Python      </p>
+             <p>  I like ACGN       </p>
+
 			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+				 <a class="btn" href="https://github.com/rushtang/myweb.git">github »</a>
 			</p>
-			<p>
-				 <a class="btn" href="#">View details »</a>
-			</p>
-			<p>
-				 <em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。
-			</p>
-    <img alt="140x140" src="v3/default3.jpg" class="img-rounded" />
+
+    <img  src="/static/img/default/darksouls.jpg" class="img-rounded" style="width: 200px;" />
+    <p>
     <span class="label label-default">标签</span>
     <span class="label label-default">标签</span>
+    </p>
 </div>
 
 {% block scripts %}
