@@ -17,7 +17,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG=True
     SQLALCHEMY_DATABASE_URI=conf.get('database','DEV_DATABASE_URL')
-    HEAD_PORTRAIT=conf.get('img','HEAD_PORTRAIT')
+    HEAD_PORTRAIT=conf.get('img','DEV_HEAD_PORTRAIT')
 
 
 class TestingConfig(Config):
@@ -27,6 +27,7 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = conf.get('database', 'DATABASE_URL')
+    HEAD_PORTRAIT = conf.get('img', 'HEAD_PORTRAIT')
 
 
 

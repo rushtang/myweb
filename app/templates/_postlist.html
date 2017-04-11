@@ -1,6 +1,6 @@
 
 <div>
-<ul class="posts" style="white-space:nowrap">
+<ul class="posts" style="white-space:nowrap;padding-left: 0px;">
     {% if posts!=False  %}
 
         {% for post in posts  %}
@@ -8,9 +8,9 @@
         <div class="post-thumbnail" onclick="location.href='{{ url_for('.post',id=post.id)}}'" style="cursor:pointer;">
             <a href="{{ url_for('.user',username=post.get_author().username) }}">
                 {% if post.get_author().head_portrait!=none %}
-                <img class="img-rounded profile-thumbnail" src="/static/img/head_portrait/{{ post.get_author().head_portrait }}" style="width: 40px;height: 20%" >
+                <img class="img-circle profile-thumbnail" src="/static/img/head_portrait/{{ post.get_author().head_portrait }}" style="width: 30px;height: 20%" >
                 {% else %}
-                <img class="img-rounded profile-thumbnail" src="/static/img/head_portrait/0.png" style="width: 40px;height: 20%" >
+                <img class="img-circle profile-thumbnail" src="/static/img/head_portrait/0.png" style="width: 40px;height: 20%" >
                 {% endif %}
 
             </a>
@@ -18,12 +18,14 @@
             <a href="{{ url_for('.user',username=post.get_author().username) }}">
                 {{ post.get_author().username }}
             </a>
-           {{ post.title }}
-        {{ moment.include_moment() }}
+            {{ moment.include_moment() }}
             {{ moment.lang("zh-CN") }}
             <span style="float:right">
            {{moment(post.timestamp).format('YYYY年M月D日')}}
             </span>
+
+           <h3 style="margin-top: 5px;margin-bottom: 5px">{{ post.title }}</h3>
+
         {% if post.digest %}
 
             <p>
