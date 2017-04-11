@@ -27,7 +27,7 @@ class EditprofileForm(FlaskForm):
 class PostForm(FlaskForm):
     title=StringField('title',validators=[Required(message='不能为空'),Length(1,30,message='不能超过30字')])
     digest = StringField('digest', validators=[ Required(message='不能为空'),Length(1, 100, message='不能超过100字')])
-    body=PageDownField('body',validators=[Required(message='不能为空'),Length(1,2000,message='不能超过2000字')],id='contentcode')
+    body=PageDownField('body',validators=[Required(message='不能为空'),Length(1,15000,message='不能超过15000字')],id='contentcode')
     submit=SubmitField('submit')
 
 
