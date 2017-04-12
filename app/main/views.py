@@ -164,7 +164,6 @@ def editprofile():
         if f is not None and is_imgsuffix(f.filename):
             f.save(current_app.config['head_portrait'.upper()]+filename)
             current_user.head_portrait=filename
-        print(current_user.head_portrait)
         db.session.add(current_user)
         db.session.commit()
         return redirect(url_for('.user',username=current_user.username))

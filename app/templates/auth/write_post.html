@@ -7,7 +7,7 @@
 {{ super() }}
 
 {{ pagedown.include_pagedown ()}}
-
+<script src='jquery.autosize.js'></script>
 {% endblock %}
 
 
@@ -26,16 +26,24 @@
     <div class="form-group  required">
     {{ wtf.form_field(form.digest) }}
     </div>
+    <script >
+    $('#flask-pagedown-body').autosize();
+    </script>
     <style type="text/css">
-        #contentcode {
-            height: 400px;
+        #flask-pagedown-body {
+            height: 600px;
+            width: 800px;
         }
     </style>
+
     <div class="form-group  required">
     {{ wtf.form_field(form.body) }}
     </div>
     <div >
     {{ wtf.form_field(form.submit) }}
+    </div>
+    <div style="height: 200px">
+
     </div>
 
 </form>
