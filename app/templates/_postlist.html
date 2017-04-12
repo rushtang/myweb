@@ -1,5 +1,5 @@
 
-<div>
+<div style="min-height: 500px">
 <ul class="posts" style="white-space:nowrap;padding-left: 0px;">
     {% if posts!=False  %}
 
@@ -30,9 +30,11 @@
 
             <p>
                 {{ post.digest }}
+             {% if current_user.is_authenticated and post.author_id==current_user.id %}
             <span style="float:right">
            <a href="{{ url_for('auth.edit_post',id=post.id) }}">编辑文章</a>
             </span>
+                 {% endif %}
 
             </p>
         {% endif %}

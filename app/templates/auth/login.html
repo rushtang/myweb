@@ -2,8 +2,7 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 
-{% block title %} Flask-login {% endblock %}
-
+{% block title %} login {% endblock %}
 
 {% block page_content %}
     {{ super() }}
@@ -26,11 +25,12 @@
     {{ wtf.quick_form(form) }}
 </div>
     </div>
-
+    <p></p>
+    <p></p>
     <div class="row">
-        <p>New user?
+        <p>没账号?
     <a href="{{ url_for('auth.register') }}">
-        click here to register</a></p>
+        点击注册</a></p>
     </div>
 
 {% endblock %}
