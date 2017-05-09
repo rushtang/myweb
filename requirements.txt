@@ -20,7 +20,6 @@ hashids==1.1.0
 html5lib==0.999999999
 itsdangerous==0.24
 Jinja2==2.9.5
-Mako==1.0.6
 Markdown==2.6.8
 MarkupSafe==1.0
 packaging==16.8
