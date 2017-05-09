@@ -2,13 +2,13 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 
-{% block title %} login {% endblock %}
+{% block title %} 登录 {% endblock %}
 
 {% block page_content %}
     {{ super() }}
 
 <div class="page-header">
-    <h1>Login</h1>
+    <h1>登录</h1>
 </div>
 
     {% with messages=get_flashed_messages() %}
@@ -22,18 +22,64 @@
     {% endwith %}
 <div class="row">
 <div class="col-md-4">
-    {{ wtf.quick_form(form) }}
+<form class="form form-horizontal" method="post" role="form">
+  {{ form.hidden_tag() }}
+
+  {{ wtf.form_field(form.email) }}
+  {{ wtf.form_field(form.password) }}
+  {{ wtf.form_field(form.remeber_me) }}
+<div style="margin-top: 30px">
+<button class="btn btn-default" id="submit" name="submit" type="button" value="Log In"
+    style="padding-right: 80px; padding-left: 80px;">
+ Log In</button>
 </div>
-    </div>
-    <p></p>
-    <p></p>
-    <div class="row">
-        <p>没账号?
+</form>
+
+</div>
+</div>
+
+<div class="row" style="margin-top: 50px">
+     <p>没账号?
     <a href="{{ url_for('auth.register') }}">
         点击注册</a></p>
-    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    $('.btn').click(function () {
+        var $csrf_token=$('input[name="csrf_token"]').val();
+        var $email=$('input[name="email"]').val();
+        var $password=$('input[name="password"]').val();
+        var $remeber_me=$('#remeber_me').is(':checked');
+        $.ajax({
+            url:'/api',
+            data:JSON.stringify(
+                    {
+                        "jsonrpc": "2.0", "method": "login", "id": 1,
+                        "params": {'csrf_token':$csrf_token,'email': $email, 'password': $password, 'remeber_me': $remeber_me}
+                    }
+            ),
+            type:'POST',
+            dataType:'json',
+            contentType:'application/json',
+        }).done(function (data) {
+                 if ('result' in data ){
+                     if (data.result['code']==500){
+                         console.log("The %s ", data.result.message);
+                         alert(data.result.message);
+                     }
+                     else{
+                         alert('登录成功');
+                         window.location.href="{{ url_for('main.index',_external=True) }}"
+                     }
+
+                }
+                else{
+                    alert('error');
+                }
+            });
+    });
+});
+</script>
 
 {% endblock %}
-
-
-

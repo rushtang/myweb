@@ -9,7 +9,7 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="/static/img/default/233.jpg"/>
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"> </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"> </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"> </script>
@@ -19,7 +19,8 @@
 <div class="container" style="width:95%">
 
 {% block navbar %}
-<div class="navbar navbar-inverse" role="navigation">
+<link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+<div class="navbar-custom" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle"
              data-toggle="collapse" data-target=".navbar-collapse">
@@ -79,26 +80,43 @@
 
 
 <div class="col-md-4 column" style="width:15%">
+    <div class="page [secondary] with-sidebar">
     <img  src="/static/img/default/233.jpg" class="img-circle" style="
     width: 200px;"/>
-			<h2>
-				Hello
-			</h2>
-			<p>Free Software developer</p>
-            <p>I code in Python      </p>
-             <p>  I like ACGN       </p>
+			<h3>
+             <em>
+             <p>Free coder</p>
+            <p>like Python      </p>
+            <p>like  ACGN       </p>
+            </em>
+            </h3>
+
+
 
 			<p>
-				 <a class="btn" href="https://github.com/rushtang/myweb.git">github »</a>
+                 <img src="/static/img/default/github.png">
+				 <a class="btn" href="https://github.com/rushtang/myweb.git"
+                 src="/static/img/default/github.png"
+                 >github »</a>
 			</p>
 
-    <img  src="/static/img/default/darksouls.jpg" class="img-rounded" style="width: 200px;" />
+            <p>
+                <img src="/static/img/default/简书.ico">
+				 <a class="btn" href="http://www.jianshu.com/u/39f616e056e2"
+                 >简书 »</a>
+			</p>
+            <p>
+                <img src="/static/img/default/bangumi.png">
+				 <a class="btn" href="http://bangumi.tv/user/327465"
+                 >bangumi »</a>
+			</p>
+
     <p>
     <span class="label label-default"></span>
     <span class="label label-default"></span>
     </p>
 </div>
-
+</div>
 {% block scripts %}
      {{ super() }}
 {%- endblock scripts %}

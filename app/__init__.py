@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import  LoginManager
 from flask_pagedown import PageDown
 from flask_moment import  Moment
+from flask_jsonrpc import JSONRPC
 from  config import config
 import pymysql
 pymysql.install_as_MySQLdb()
@@ -14,6 +15,8 @@ bootstrap=Bootstrap()
 db=SQLAlchemy()
 moment=Moment()
 pagedown=PageDown()
+
+
 
 login_manager=LoginManager()
 login_manager.session_protection='strong'
@@ -33,9 +36,13 @@ def create_app(config_name):
     pagedown.init_app(app)
 
 
+
     from .main import main as main_blueprint
     from .auth import auth as auth_blueprint
     app.register_blueprint(main_blueprint)
     app.register_blueprint(auth_blueprint,url_prefix='/auth')
 
+
     return app
+
+

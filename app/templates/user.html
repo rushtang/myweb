@@ -24,10 +24,10 @@
     {% endif %}
 </p>
 <p>
-    Member since {{ moment(user.member_since).format('L') }}.
+     注册时间: {{ moment(user.member_since).format('L') }}.
     </p>
 <p>
-    Last seen {{ moment(user.last_seen).fromNow() }}.
+    上次登录时间: {{ moment(user.last_seen).fromNow() }}.
 </p>
 <p>
     {% if current_user.can(Permission.FOLLOW) and user!=current_user %}
